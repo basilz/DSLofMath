@@ -38,16 +38,17 @@ eval formula env = ev formula
     ev (And a b) = ev a && ev b
     ev (Or a b) = ev a || ev b
 
-type AllIntro f a = f -> a
+newtype AllIntro f a = AllIntro {run::f -> a}
 data AllElim f a = AllElim f a 
 data Forall x p = Forall x p
 
 
-proofChecker (AllIntro f a) (Forall x p) = proofChecker (f a') (subst x a' p)
-  where
-    a' = freshFor [a, Forall x p]
-proofChecker (AllElim f t) p =
-  checkUnify (f x') p
-    && proofChecker t (Forall x' (f x'))
-  where
-    x' = freshFor [f x, p]
+-- proofChecker :: AllIntro f a -> Forall x t -> Bool
+-- proofChecker (AllIntro fa) (Forall x p) = proofChecker (f a') (subst x a' p)
+--   where
+--     a' = freshFor [a, Forall x p]
+-- proofChecker (AllElim f t) p =
+--   checkUnify (f x') p
+--     && proofChecker t (Forall x' (f x'))
+--   where
+--     x' = freshFor [f x, p]

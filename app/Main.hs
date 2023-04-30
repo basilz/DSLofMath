@@ -1,6 +1,6 @@
 module Main (main) where
 
-import Prop
+import PropositionalLogic
 import Proof
 
 

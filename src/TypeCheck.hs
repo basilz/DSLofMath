@@ -1,3 +1,4 @@
+{-# LANGUAGE TypeOperators #-}
 module TypeCheck where
 
 type Truth = ()
@@ -30,8 +31,8 @@ notIntro (f, g) x = g x (f x)
 implyIntro :: (p -> q) -> p `Implies` q
 implyIntro f = f
 
-falseElim :: False -> p
-falseElim x = case x of
+-- falseElim :: False -> p
+-- falseElim x = case x of
 
 andElimL :: And p q -> p
 andElimL = fst
@@ -77,3 +78,40 @@ test2' =
               andIntro (implyElim (andElimL fg) x) (implyElim (andElimR fg) x)
           )
     )
+
+
+(x, deriv, ff, a, b, int) = undefined
+
+data X
+data Y
+data Z
+
+f :: X -> Y
+f = undefined
+
+x :: X
+
+y :: X -> Y
+y = f
+
+y' :: X -> Y
+y' = deriv f
+
+deriv :: (X -> Y) -> (X -> Y)
+
+ff :: (X -> Y) -> (X -> Y) -> X -> Z
+
+a::X
+b::X
+
+integral :: Z
+integral = int a b expr 
+  where 
+    expr x = ff y y' x
+
+ff2 :: Y -> Y -> X -> Z
+ff2 = undefined
+
+
+
+

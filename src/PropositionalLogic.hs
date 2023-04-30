@@ -1,4 +1,4 @@
-module Prop where
+module PropositionalLogic where
 
 import Data.List (nub)
 

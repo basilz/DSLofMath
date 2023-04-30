@@ -25,9 +25,12 @@ source-repository head
 
 library
   exposed-modules:
+      Ex3_7
+      Ex3_8
+      Ex3_9
       FOL
       Proof
-      Prop
+      PropositionalLogic
       TypeCheck
   other-modules:
       Paths_DSLofMath

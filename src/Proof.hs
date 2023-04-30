@@ -1,6 +1,6 @@
 module Proof where
 
-import Prop ( Prop(Implies, And, Or, Not, Con) )
+import PropositionalLogic ( Prop(Implies, And, Or, Not, Con) )
 
 data Proof
   = TruthIntro
